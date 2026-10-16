@@ -1,0 +1,111 @@
+@font-face{font-family:"Cinzel";src:url(assets/fonts/Cinzel.woff2) format("woff2");font-weight:400 900;font-display:swap}
+@font-face{font-family:"Inter";src:url(assets/fonts/Inter.woff2) format("woff2");font-weight:100 900;font-display:swap}
+:root{
+  --bg:#0a1230;         /* deep porthole, from Fram #081C72 darkened */
+  --bg-2:#0c1a3d;
+  --teal:#086691;       /* aurora teal */
+  --amber:#e8c896;      /* candle amber */
+  --ivory:#f2eee6;
+  --muted:#c7c2b9;
+  --line:rgba(242,238,230,.13);
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;background:var(--bg)}
+body{margin:0;min-height:100vh;color:var(--ivory);font:400 1rem/1.55 "Inter",system-ui,sans-serif;
+  background:
+    url(assets/img/grain.png),
+    radial-gradient(120% 70% at 50% 0%, #0f2350 0%, transparent 60%),
+    var(--bg);
+  -webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:2px}
+.skip{position:absolute;left:1rem;top:-3rem;background:var(--amber);color:#18100c;padding:.5rem .8rem;z-index:5}
+.skip:focus{top:1rem}
+
+.page{width:min(100% - 2.5rem, 34rem);margin-inline:auto;padding:clamp(2.5rem,8vw,4.5rem) 0 2.5rem}
+.masthead{text-align:center;margin-bottom:2.5rem}
+.logo{margin:0 auto;width:min(100%,21rem)}
+.tag{margin:.9rem 0 0;font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+
+/* release */
+.art{position:relative;display:block;overflow:hidden;background:#ca3517;aspect-ratio:1}
+.art img{width:100%;transform-origin:49.73% 49.47%;transition:transform 1.2s var(--ease)}
+/* glow sits exactly inside the cover's own ink circle: centre (746,742) r540 on 1500px */
+.glow{position:absolute;inset:0;clip-path:circle(36% at 49.73% 49.47%);pointer-events:none;
+  background:radial-gradient(38% 38% at 40% 38%, rgba(255,226,170,.30), transparent 70%);
+  mix-blend-mode:soft-light;opacity:.9}
+.release-text{padding-top:1.6rem}
+.eyebrow{margin:0 0 .5rem;font-size:.75rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--amber)}
+.title{margin:0;font:500 clamp(1.75rem,7vw,2.4rem)/1.12 "Cinzel",serif;letter-spacing:.02em}
+.blurb{margin:.8rem 0 1.4rem;color:var(--muted);max-width:30em}
+.cta{display:inline-flex;align-items:center;gap:.7rem;padding:.85rem 1.25rem;background:var(--amber);color:#18100c;
+  font-weight:600;font-size:.95rem;letter-spacing:.01em;border-radius:2px;transition:background-color .25s,transform .25s var(--ease)}
+.cta:hover{background:#f3dcb4;transform:translateY(-1px)}
+.cta .ico{width:1.1rem;height:1.1rem}
+
+/* sections */
+.lists section{margin-top:3.25rem}
+.section-title{margin:0 0 .6rem;font:500 .8rem/1 "Cinzel",serif;letter-spacing:.28em;text-transform:uppercase;color:var(--amber)}
+.shows,.links{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.shows li,.links li{border-bottom:1px solid var(--line)}
+
+.shows a{display:grid;grid-template-columns:3.4rem 1fr auto;gap:1rem;align-items:center;padding:1.1rem .25rem;transition:background-color .3s}
+.shows time{display:grid;justify-items:center;line-height:1;font-family:"Cinzel",serif}
+.shows .d{font-size:1.65rem;font-weight:500}
+.shows .m{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;margin-top:.3rem}
+.shows .w{font:500 .66rem "Inter",sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:.35rem}
+.info{display:grid;gap:.15rem;min-width:0}
+.venue{font-weight:600}
+.city{color:var(--ivory)}
+.with{font-size:.85rem;color:var(--muted)}
+.go{font-size:.8rem;font-weight:500;letter-spacing:.06em;color:var(--amber);white-space:nowrap;padding-right:1rem;position:relative}
+.go::after{content:"";position:absolute;right:0;top:50%;width:.45rem;height:.45rem;border:solid currentColor;border-width:1.5px 1.5px 0 0;transform:translate(0,-50%) rotate(45deg);transition:transform .3s var(--ease)}
+
+.links a{display:flex;align-items:center;gap:.95rem;padding:1rem .25rem;font-weight:500;transition:background-color .3s,color .3s}
+.links .ico{width:1.2rem;height:1.2rem;color:var(--muted);transition:color .3s}
+.links a::after{content:"";margin-left:auto;width:.45rem;height:.45rem;border:solid var(--muted);border-width:1.5px 1.5px 0 0;transform:rotate(45deg);opacity:.6;transition:transform .3s var(--ease),opacity .3s,border-color .3s}
+.ico{fill:currentColor;flex:none}
+
+@media (hover:hover){
+  .shows a:hover,.links a:hover{background:rgba(8,102,145,.16)}
+  .shows a:hover .go::after{transform:translate(3px,-50%) rotate(45deg)}
+  .links a:hover .ico{color:var(--amber)}
+  .links a:hover::after{transform:translateX(3px) rotate(45deg);opacity:1;border-color:var(--amber)}
+}
+
+.foot{margin-top:4rem;text-align:center;font-size:.78rem;color:var(--muted)}
+.foot p{margin:.3rem 0}
+.motto{font:500 .95rem "Cinzel",serif;letter-spacing:.14em;color:var(--ivory)}
+
+/* desktop */
+@media (min-width:960px){
+  .page{width:min(100% - 6rem, 70rem);padding-top:4.5rem}
+  .masthead{margin-bottom:4rem}
+  .logo{width:30rem}
+  .layout{display:grid;grid-template-columns:minmax(0,28.75rem) minmax(0,1fr);gap:5.5rem;align-items:start}
+  .release{position:sticky;top:3rem}
+  .lists section:first-child{margin-top:0}
+  .lists section{margin-top:3.5rem}
+  .shows a{grid-template-columns:4rem 1fr auto;padding:1.25rem .5rem}
+  .links{display:grid;grid-template-columns:1fr 1fr;column-gap:2.5rem;border-top:0}
+  .links li:nth-child(-n+2){border-top:1px solid var(--line)}
+  .links a{padding:1rem .5rem}
+}
+
+/* motion */
+@media (prefers-reduced-motion:no-preference){
+  .js .logo img{clip-path:inset(0 50% 0 50%);opacity:0;animation:logo 1.6s var(--ease) .15s forwards}
+  .js .reveal{opacity:0;transform:translateY(12px);animation:rise .7s var(--ease) forwards;animation-delay:calc(.55s + var(--i,0) * 70ms)}
+  .art img{animation:drift 28s ease-in-out 2s infinite alternate}
+  .glow{animation:light 18s ease-in-out infinite alternate}
+}
+@keyframes logo{to{clip-path:inset(0 0 0 0);opacity:1}}
+@keyframes rise{to{opacity:1;transform:none}}
+@keyframes drift{from{transform:scale(1)}to{transform:scale(1.035)}}
+@keyframes light{
+  0%{background-position:0 0;opacity:.55}
+  50%{opacity:1}
+  100%{background-position:18% 22%;opacity:.7}}
+.glow{background-size:140% 140%}
