@@ -19,13 +19,3 @@
   fig.hidden=false;
 })();
 
-// Load sequence + scroll-in sections
-(function(){
-  var root=document.documentElement;
-  var go=function(){ root.classList.add('loaded'); };
-  if(document.fonts && document.fonts.ready){ var t=setTimeout(go,250); document.fonts.ready.then(function(){ clearTimeout(t); go(); }); } else go();
-  var els=document.querySelectorAll('.live,.listen,.band,.foot');
-  if(!('IntersectionObserver' in window)){ els.forEach(function(e){e.classList.add('in')}); return; }
-  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); },{threshold:.12});
-  els.forEach(function(e){ io.observe(e); });
-})();
