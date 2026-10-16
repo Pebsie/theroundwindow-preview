@@ -4,7 +4,7 @@
   --bg:#0a1230;         /* deep porthole, from Fram #081C72 darkened */
   --bg-2:#0c1a3d;
   --teal:#086691;       /* aurora teal */
-  --amber:#e8c896;      /* candle amber */
+  --accent:#b8c3da;     /* Fram frost: pale sky sampled from the Fram cover (median light cool pixels #b2bcd4) */
   --ivory:#f2eee6;
   --muted:#c7c2b9;
   --line:rgba(242,238,230,.13);
@@ -17,37 +17,37 @@ body{margin:0;min-height:100vh;color:var(--ivory);font:400 1rem/1.55 "Inter",sys
     url(assets/img/grain.png),
     radial-gradient(120% 70% at 50% 0%, #0f2350 0%, transparent 60%),
     var(--bg);
-  -webkit-font-smoothing:antialiased}
+  -webkit-font-smoothing:antialiased;overflow-x:clip}
 img{display:block;max-width:100%;height:auto}
 a{color:inherit;text-decoration:none}
-:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:2px}
-.skip{position:absolute;left:1rem;top:-3rem;background:var(--amber);color:#18100c;padding:.5rem .8rem;z-index:5}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+.skip{position:absolute;left:1rem;top:-3rem;background:var(--accent);color:#0a1230;padding:.5rem .8rem;z-index:5}
 .skip:focus{top:1rem}
 
 .page{width:min(100% - 2.5rem, 34rem);margin-inline:auto;padding:clamp(2.5rem,8vw,4.5rem) 0 2.5rem}
 .masthead{text-align:center;margin-bottom:2.5rem}
 .logo{margin:0 auto;width:min(100%,21rem)}
-.tag{margin:.9rem 0 0;font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.tag{margin:.9rem 0 0;font-size:.72rem;letter-spacing:.16em;text-wrap:balance;text-transform:uppercase;color:var(--muted)}
 
 /* release */
 .art{position:relative;display:block;overflow:hidden;background:#ca3517;aspect-ratio:1}
 .art img{width:100%;transform-origin:49.73% 49.47%;transition:transform 1.2s var(--ease)}
 /* glow sits exactly inside the cover's own ink circle: centre (746,742) r540 on 1500px */
 .glow{position:absolute;inset:0;clip-path:circle(36% at 49.73% 49.47%);pointer-events:none;
-  background:radial-gradient(38% 38% at 40% 38%, rgba(255,226,170,.30), transparent 70%);
+  background:radial-gradient(38% 38% at 40% 38%, rgba(214,226,245,.30), transparent 70%);
   mix-blend-mode:soft-light;opacity:.9}
 .release-text{padding-top:1.6rem}
-.eyebrow{margin:0 0 .5rem;font-size:.75rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--amber)}
+.eyebrow{margin:0 0 .5rem;font-size:.75rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
 .title{margin:0;font:500 clamp(1.75rem,7vw,2.4rem)/1.12 "Cinzel",serif;letter-spacing:.02em}
 .blurb{margin:.8rem 0 1.4rem;color:var(--muted);max-width:30em}
-.cta{display:inline-flex;align-items:center;gap:.7rem;padding:.85rem 1.25rem;background:var(--amber);color:#18100c;
+.cta{display:inline-flex;align-items:center;gap:.7rem;padding:.85rem 1.25rem;background:var(--accent);color:#0a1230;
   font-weight:600;font-size:.95rem;letter-spacing:.01em;border-radius:2px;transition:background-color .25s,transform .25s var(--ease)}
-.cta:hover{background:#f3dcb4;transform:translateY(-1px)}
+.cta:hover{background:#d3dbea;transform:translateY(-1px)}
 .cta .ico{width:1.1rem;height:1.1rem}
 
 /* sections */
 .lists section{margin-top:3.25rem}
-.section-title{margin:0 0 .6rem;font:500 .8rem/1 "Cinzel",serif;letter-spacing:.28em;text-transform:uppercase;color:var(--amber)}
+.section-title{margin:0 0 .6rem;font:500 .8rem/1 "Cinzel",serif;letter-spacing:.28em;text-transform:uppercase;color:var(--accent)}
 .shows,.links{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
 .shows li,.links li{border-bottom:1px solid var(--line)}
 
@@ -60,7 +60,7 @@ a{color:inherit;text-decoration:none}
 .venue{font-weight:600}
 .city{color:var(--ivory)}
 .with{font-size:.85rem;color:var(--muted)}
-.go{font-size:.8rem;font-weight:500;letter-spacing:.06em;color:var(--amber);white-space:nowrap;padding-right:1rem;position:relative}
+.go{font-size:.8rem;font-weight:500;letter-spacing:.06em;color:var(--accent);white-space:nowrap;padding-right:1rem;position:relative}
 .go::after{content:"";position:absolute;right:0;top:50%;width:.45rem;height:.45rem;border:solid currentColor;border-width:1.5px 1.5px 0 0;transform:translate(0,-50%) rotate(45deg);transition:transform .3s var(--ease)}
 
 .links a{display:flex;align-items:center;gap:.95rem;padding:1rem .25rem;font-weight:500;transition:background-color .3s,color .3s}
@@ -71,11 +71,11 @@ a{color:inherit;text-decoration:none}
 @media (hover:hover){
   .shows a:hover,.links a:hover{background:rgba(8,102,145,.16)}
   .shows a:hover .go::after{transform:translate(3px,-50%) rotate(45deg)}
-  .links a:hover .ico{color:var(--amber)}
-  .links a:hover::after{transform:translateX(3px) rotate(45deg);opacity:1;border-color:var(--amber)}
+  .links a:hover .ico{color:var(--accent)}
+  .links a:hover::after{transform:translateX(3px) rotate(45deg);opacity:1;border-color:var(--accent)}
 }
 
-.foot{margin-top:4rem;text-align:center;font-size:.78rem;color:var(--muted)}
+.foot{margin-top:3rem;text-align:center;font-size:.78rem;color:var(--muted)}
 .foot p{margin:.3rem 0}
 .motto{font:500 .95rem "Cinzel",serif;letter-spacing:.14em;color:var(--ivory)}
 
@@ -109,3 +109,17 @@ a{color:inherit;text-decoration:none}
   50%{opacity:1}
   100%{background-position:18% 22%;opacity:.7}}
 .glow{background-size:140% 140%}
+
+/* band photo: full-bleed, darkened, fading into the page */
+.band{position:relative;margin:4.5rem 0 0;width:100vw;margin-left:calc(50% - 50vw)}
+.band img{width:100%;aspect-ratio:3/2;object-fit:cover;object-position:50% 62%;filter:brightness(.78) saturate(.85)}
+.band::before{z-index:1;content:"";position:absolute;left:0;right:0;height:22%;pointer-events:none}
+.band::before{top:0;background:linear-gradient(var(--bg),rgba(10,18,48,0))}
+.band picture{position:relative;display:block}
+.band picture::after{content:"";position:absolute;left:0;right:0;bottom:0;height:22%;bottom:0;background:linear-gradient(rgba(10,18,48,0),var(--bg))}
+.band figcaption{position:relative;width:min(100% - 2.5rem,34rem);margin:.75rem auto 0;font-size:.75rem;line-height:1.7;text-wrap:balance;letter-spacing:.04em;color:var(--muted);text-align:center}
+@media (min-width:960px){
+  .band{margin-top:6rem}
+  .band img{aspect-ratio:auto;height:min(64vh,580px);object-position:50% 30%}
+  .band figcaption{width:min(100% - 6rem,70rem)}
+}
