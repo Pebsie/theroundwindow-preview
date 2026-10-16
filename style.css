@@ -1,4 +1,4 @@
-@font-face{font-family:"Le Murmure";src:url(assets/fonts/LeMurmure.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Cinzel";src:url(assets/fonts/Cinzel.woff2) format("woff2");font-weight:400 900;font-display:swap}
 @font-face{font-family:"Familjen";src:url(assets/fonts/Familjen.woff2) format("woff2");font-weight:400 700;font-display:swap}
 @font-face{font-family:"Familjen";src:url(assets/fonts/Familjen-Italic.woff2) format("woff2");font-weight:400 700;font-style:italic;font-display:swap}
 :root{
@@ -10,7 +10,7 @@
   --stone:#bcc4cb;      /* cold stone */
   --ice:#e7ecef;        /* primary text / button */
   --red:#ca3517;        /* The Crossing red: used sparingly */
-  --display:"Le Murmure","Arial Narrow",sans-serif;
+  --display:"Cinzel",Georgia,serif;
   --text:"Familjen",system-ui,sans-serif;
   --mono:"Familjen",system-ui,sans-serif;
   --ease:cubic-bezier(.65,0,.15,1);
@@ -20,7 +20,7 @@
 *,*::before,*::after{box-sizing:border-box}
 html{background:var(--slate);-webkit-text-size-adjust:100%}
 body{margin:0;color:var(--ice);font:400 1.0625rem/1.55 var(--text);overflow-x:clip;
-  background:url(assets/img/grain.png),radial-gradient(80% 55% at 85% -5%,#1c252d 0,transparent 70%),var(--slate);-webkit-font-smoothing:antialiased}
+  background:var(--slate);-webkit-font-smoothing:antialiased}
 img{display:block;max-width:100%;height:auto}
 a{color:inherit;text-decoration:none}
 :focus-visible{outline:2px solid var(--ice);outline-offset:4px}
@@ -28,7 +28,7 @@ a{color:inherit;text-decoration:none}
 .skip:focus{top:1rem}
 .ico{width:1.15rem;height:1.15rem;fill:currentColor;flex:none}
 .mast,.hero,.live,.listen,.band,.foot{padding-inline:var(--pad)}
-[class*="t1"],.sec span,.city,.shows .d,.track,.lyric p{font-synthesis:none}
+[class*="t1"],.sec span,.city,.shows .d,.track,.lyric p{font-synthesis:weight}
 
 /* masthead */
 .mast{padding-top:2rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.9rem 2rem}
@@ -130,7 +130,7 @@ a{color:inherit;text-decoration:none}
   .links{grid-template-columns:repeat(4,1fr)}
   .links li:first-child{grid-column:span 2;grid-row:span 2}
   .links li:first-child a{align-content:end;padding:1.5rem}
-  .links li:first-child .n{font:400 3.6rem/.85 var(--display);text-transform:uppercase;font-synthesis:none}
+  .links li:first-child .n{font:400 3.6rem/.85 var(--display);text-transform:uppercase;font-synthesis:weight}
   .links li:first-child .ico{width:1.8rem;height:1.8rem;align-self:end}
   .links a{min-height:6.2rem;padding:1.2rem}
   .band{margin-top:8rem}
@@ -197,7 +197,7 @@ a{color:inherit;text-decoration:none}
 .bar{display:none}
 /* oversized ghost month bleeding off the right edge behind the dates */
 .live{position:relative;overflow:hidden}
-.ghost{position:absolute;right:-.08em;top:-.12em;font:400 clamp(12rem,48vw,34rem)/.8 var(--display);text-transform:uppercase;color:#18202a;pointer-events:none;z-index:0;font-synthesis:none}
+.ghost{position:absolute;right:-.08em;top:-.12em;font:400 clamp(12rem,48vw,34rem)/.8 var(--display);text-transform:uppercase;color:#18202a;pointer-events:none;z-index:0;font-synthesis:weight}
 .live>*:not(.ghost){position:relative;z-index:1}
 /* lyric as a hung pull-quote, breaking the grid to the left */
 .lyric{border-top:0;padding-top:0;position:relative}
@@ -228,3 +228,21 @@ a{color:inherit;text-decoration:none}
   .js .foot .lyric p{clip-path:none;opacity:0;transform:translateY(24px)}
   .js .foot.in .lyric p{animation:fadeup 1.1s var(--out) .1s forwards}
 }
+
+/* v6.1: Cinzel (the free stand-in for the band's Trajan-style wordmark), sized for legibility */
+.t1{font-weight:600;font-size:clamp(2rem,8.4vw,6.6rem);letter-spacing:.02em;line-height:.95}
+.t2{font-family:var(--display);font-weight:500;font-size:clamp(1.15rem,4.4vw,1.9rem);letter-spacing:.12em}
+.track{font-weight:500;font-size:clamp(1rem,1.9vw,1.3rem);letter-spacing:.1em}
+.sec span{font-weight:600;font-size:clamp(2rem,6.5vw,3.4rem);letter-spacing:.04em;line-height:1}
+.shows .d{font-weight:500;font-size:3.6rem;letter-spacing:0}
+.shows .m{font-weight:600;font-size:.85rem;letter-spacing:.14em}
+.city{font-weight:600;font-size:1.5rem;letter-spacing:.06em;line-height:1.05}
+.ghost{font-weight:700;font-size:clamp(9rem,30vw,22rem);letter-spacing:-.02em}
+.lyric p{font-weight:500;font-size:clamp(1.6rem,4.6vw,3.3rem);line-height:1.12;letter-spacing:.03em;max-width:22ch}
+@media (min-width:960px){
+  .t1{font-size:clamp(5.2rem,6.4vw,7.2rem)}
+  .shows .d{font-size:4.4rem}
+  .city{font-size:1.85rem}
+  .links li:first-child .n{font-weight:600;font-size:2.4rem;letter-spacing:.04em;line-height:1}
+}
+@media (max-width:959px){ .hero-text{margin-top:1.4rem} }
