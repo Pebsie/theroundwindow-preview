@@ -16,12 +16,5 @@
   l.lines.forEach(function(s,i){ if(i) p.appendChild(document.createElement('br')); p.appendChild(document.createTextNode(s)); });
   p.insertBefore(document.createTextNode('\u201C'),p.firstChild); p.appendChild(document.createTextNode('\u201D'));
   fig.querySelector('cite').textContent=l.song===l.release?l.song:l.song+', '+l.release;
-  fig.hidden=false; requestAnimationFrame(function(){ requestAnimationFrame(function(){ fig.classList.add('in'); }); });
-})();
-// Band photo: reveal when it scrolls into view.
-(function(){
-  var el=document.querySelector('.band'); if(!el) return;
-  if(!('IntersectionObserver' in window)){ el.classList.add('in'); return; }
-  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ el.classList.add('in'); io.disconnect(); } }); },{threshold:.2,rootMargin:'0px 0px -8% 0px'});
-  io.observe(el);
+  fig.hidden=false;
 })();

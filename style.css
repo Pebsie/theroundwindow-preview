@@ -120,15 +120,11 @@ a{color:inherit;text-decoration:none}
   .band img{aspect-ratio:16/7;object-position:50% 34%}
 }
 
-.lyric{margin:0 auto 2.5rem;max-width:30rem;opacity:0;transition:opacity 1.6s var(--ease) .4s}
-.lyric.in{opacity:1}
+.lyric{margin:0 auto 2.5rem;max-width:30rem}
 .lyric blockquote{margin:0}
 .lyric p{margin:0;font:400 1.05rem/1.6 "Cinzel",serif;letter-spacing:.03em;color:var(--ivory)}
 .lyric cite{display:block;margin-top:.6rem;font:500 .7rem "Inter",sans-serif;font-style:normal;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 @media (prefers-reduced-motion:no-preference){
-  .js .band{opacity:0;transform:translateY(28px);transition:opacity 1.1s var(--ease),transform 1.3s var(--ease)}
-  .js .band img{transform:scale(1.06);transition:transform 2.2s var(--ease)}
-  .js .band.in{opacity:1;transform:none}
-  .js .band.in img{transform:none}
+  .js .band.reveal img{transform:scale(1.04);animation:settle 1.6s var(--ease) forwards;animation-delay:calc(.55s + var(--i,0) * 70ms)}
 }
-@media (prefers-reduced-motion:reduce){.lyric{transition:none}}
+@keyframes settle{to{transform:none}}
